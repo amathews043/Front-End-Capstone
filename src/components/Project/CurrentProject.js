@@ -56,7 +56,16 @@ export const CurrentProjectPage = ({getParentProject}) => {
         [projectId]
     )
 
+    const deleteSections = () => {
+        fetch(`http://localhost:8088/sections?projectId=${projectId}`, {
+                    method: "DELETE"
+            })
+            .then ()
+    }
+
     const deleteProject = () => {
+        deleteSections()
+
         fetch(`http://localhost:8088/projects/${projectId}`, {
                     method: "DELETE"
             })

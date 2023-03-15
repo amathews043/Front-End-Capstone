@@ -45,7 +45,7 @@ export const NewProjectForm = () => {
     )
 
     const validateForm = () => {
-        if (!project.name || !project.projectURL || !project.level || !project.startDate){
+        if (!project.name || !project.levelId){
             return false
         }
         return true
@@ -82,8 +82,7 @@ export const NewProjectForm = () => {
             })
     }
 
-    const  sectionSaveButtonClick = (event) => {
-        event.preventDefault()
+    const  sectionSaveButtonClick = () => {
 
         const projectToSendToAPI = {
             projectId: newProjectId, 
@@ -184,7 +183,7 @@ export const NewProjectForm = () => {
                 onChange={
                     (evt) => {
                         const copy = {...project}
-                        copy.startDate = evt.target.value 
+                        copy.startDate = evt.target.value
                         updateProject(copy)
                     }
                 } />
