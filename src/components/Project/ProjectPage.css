@@ -43,12 +43,6 @@
     justify-content: center;
 }
 
-.linkAddNote{
-    margin-top: 75px;
-    width: 100px;
-    color: rgb(62, 62, 207);
-}
-
 .linkPattern {
     margin-bottom: 25px;
     margin-top: 10px;
@@ -56,17 +50,8 @@
     padding-right: 20px;
 }
 
-.deleteButton, .completeButton{
-    width: 100px;
-    color: rgb(62, 62, 207);
-}
-
 .mainDiv{
     text-align: center;
-}
-
-.link, .ticket_delete{
-    color: rgb(77, 77, 206);
 }
 
 .plus, .minus, .sectionCount{
@@ -75,6 +60,15 @@
     font-size: xx-large;
 }
 
-.ticket_delete{
-    margin-left: 100px;
+.link{
+    color: white
+}
+
+.img{
+    width: 50%; 
+    margin-top: 15px;
+}
+
+.buttonStart{
+    text-align: center;
 }

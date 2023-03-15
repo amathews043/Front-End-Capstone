@@ -56,7 +56,7 @@ export const CompleteProjectPage = () => {
             {
             project.patternURL 
             ? <> 
-                <button className="linkPattern"> <Link className ="link" to={project.patternURL} target="_blank" rel="noreferrer noopener"> Link to pattern </Link>  </button>
+                <button className="button is-link"> <Link className ="link" to={project.patternURL} target="_blank" rel="noreferrer noopener"> Link to pattern </Link>  </button>
             </> 
             : <>
   
@@ -85,12 +85,12 @@ export const CompleteProjectPage = () => {
             })
         }
         <div className="linkButtons">
-                <button className="linkAddNote"> <Link to={`/newNote/${projectId}`}> Add a new note </Link> </button>
+                <button className="button is-link"> <Link className="link" to={`/newNote/${projectId}`}> Add a new note </Link> </button>
     
             </div>
 
         <div className="buttonDiv"> 
-            <button className="deleteButton" onClick={deleteProject}> Delete Project </button>
+            <button className="button is-link" onClick={deleteProject}> Delete Project </button>
         </div>
 
         

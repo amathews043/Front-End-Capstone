@@ -57,8 +57,9 @@ export const Home = () => {
                     </ul>
                 </div>
              </div>
-
-             <button className="newProjectButton"><Link to={'/Form'}> Start a New Project</Link></button>
+            <div className="buttonDiv">
+            <button className="button is-link buttonStart"><Link className="link" to={'/Form'}> Start a New Project</Link></button>
+            </div>
         </section>
     )
 }

@@ -62,7 +62,7 @@ export const AddANote = () => {
                     }}> 
                     </textarea>
         <div>
-        <button onClick={(clickEvt) => {
+        <button className="button is-link" onClick={(clickEvt) => {
             handleSubmit(clickEvt)}
             } >Submit</button>
         </div>

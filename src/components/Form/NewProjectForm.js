@@ -7,12 +7,11 @@ export const NewProjectForm = () => {
     const localAppUser = localStorage.getItem("app_user")
     const appUserObject = JSON.parse(localAppUser)
     const [levels, setLevels] = useState([])
-    const [projects, setProjects] = useState([])
-    const [newProjectId, setProjectId] = useState(null)
     const [errorMessage, setErrorMessage] = useState("")
     const [project, updateProject] = useState({
         name: "", 
         patternURL: "", 
+        photoURL: "",
         levelId: 0, 
         startDate: null, 
         completeDate: null, 
@@ -27,18 +26,6 @@ export const NewProjectForm = () => {
             .then(res =>  res.json())
             .then(levelsArray => {
                 setLevels(levelsArray)
-            })
-        }, 
-        []
-    )
-
-        useEffect(
-        () => {
-            fetch('http://localhost:8088/projects')
-            .then((res) => res.json())
-            .then((projectsArray) => {
-                setProjects(projectsArray)
-                setProjectId(projectsArray.length + 1)
             })
         }, 
         []
@@ -59,17 +46,36 @@ export const NewProjectForm = () => {
             return
         }
 
-        sectionSaveButtonClick()
-
         const projectToSendToAPI = {
             name: project.name, 
-            patternURL: project.patternURL, 
+            patternURL: project.patternURL,
+            photoURL: project.photoURL, 
             levelId: project.levelId, 
-            startDate: project.startDate, 
+            startDate: new Date().toLocaleDateString(), 
             completeDate: project.completeDate, 
-            userId: appUserObject.id 
+            userId: appUserObject.id
         }
         return fetch ('http://localhost:8088/projects', {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify(projectToSendToAPI)
+        })
+            .then(res => res.json())
+            .then((project) => {
+                sectionSaveButtonClick(project.id)
+            })
+    }
+
+    const  sectionSaveButtonClick = (projectId) => {
+
+        const projectToSendToAPI = {
+            projectId: projectId, 
+            count: 0, 
+            name: "main section"
+        }
+        return fetch ('http://localhost:8088/sections', {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"
@@ -80,23 +86,6 @@ export const NewProjectForm = () => {
             .then(() => {
                 navigate("/")
             })
-    }
-
-    const  sectionSaveButtonClick = () => {
-
-        const projectToSendToAPI = {
-            projectId: newProjectId, 
-            count:0
-        }
-        return fetch ('http://localhost:8088/sections', {
-            method: "POST", 
-            headers: {
-                "Content-Type": "application/json"
-            }, 
-            body: JSON.stringify(projectToSendToAPI)
-        })
-            .then(res => res.json())
-            .then()
     }
 
     return (
@@ -132,11 +121,31 @@ export const NewProjectForm = () => {
                 type="text"
                 className="form-control input"
                 placeholder="optional"
-                value={project.projectURL}
+                value={project.patternURL}
                 onChange={
                     (evt) => {
                         const copy = {...project}
-                        copy.projectURL = evt.target.value 
+                        copy.patternURL = evt.target.value 
+                        updateProject(copy)
+                    }
+                } />
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group field"> 
+            <label className="label" htmlFor="phtotURL">Photo URL:</label>
+                <div className="control">
+                <input
+                autoFocus
+                type="text"
+                className="form-control input"
+                placeholder="optional inspiration picture"
+                value={project.photoURL}
+                onChange={
+                    (evt) => {
+                        const copy = {...project}
+                        copy.photoURL = evt.target.value 
                         updateProject(copy)
                     }
                 } />
@@ -168,26 +177,6 @@ export const NewProjectForm = () => {
                 </div>
 
             </div>
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group field"> 
-            <label className="label" htmlFor="startDate">Start Date:*</label>
-                <div className="control"> 
-                <input
-                required autoFocus
-                type="date"
-                className="form-control"
-                placeholder="Start Date"
-                value={project.startDate}
-                onChange={
-                    (evt) => {
-                        const copy = {...project}
-                        copy.startDate = evt.target.value
-                        updateProject(copy)
-                    }
-                } />
-                </div>
             </div>
         </fieldset>
         <button className="button is-link"

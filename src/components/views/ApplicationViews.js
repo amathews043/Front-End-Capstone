@@ -5,6 +5,7 @@ import { ProjectPage } from"../Project/ProjectPage"
 import { AddANote } from "../Project/AddANote"
 import { EditNote } from "../Project/EditNote"
 import { NewProjectForm } from "../Form/NewProjectForm"
+import { NewSectionForm } from "../Project/NewSectionForm"
 
 
 export const ApplicationViews = () => {
@@ -26,6 +27,7 @@ export const ApplicationViews = () => {
 				<Route path="newNote/:projectId" element={ <AddANote/> } />
 				<Route path="editNote/:noteId" element={ <EditNote/> } />
 				<Route path="form" element={ <NewProjectForm/> } />
+				<Route path="newSection/:projectId" element={ <NewSectionForm/> } />
 		</Routes>
 	)
 		

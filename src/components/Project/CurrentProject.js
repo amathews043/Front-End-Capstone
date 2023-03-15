@@ -100,7 +100,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
             {
         project.patternURL 
         ? <> 
-            <button className="linkPattern"> <Link className ="link" to={project.patternURL} target="_blank" rel="noreferrer noopener"> Link to pattern </Link>  </button>
+            <button className="button is-link"> <Link className ="link" to={project.patternURL} target="_blank" rel="noreferrer noopener">Link to pattern </Link>  </button>
         </> 
         : <>
   
@@ -116,7 +116,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
                 return <div className="project-notes" key={note.id}> 
                     <header> Date: {note.date} </header>
                     <p> {note.note} </p>
-                    <button><Link to={`/editNote/${note.id}`}> Edit </Link> </button>
+                    <button className="button is-link"><Link className="link" to={`/editNote/${note.id}`}> Edit Note </Link> </button>
                     <button onClick={() => {
             fetch(`http://localhost:8088/notes/${note.id}`, {
                     method: "DELETE"
@@ -124,13 +124,27 @@ export const CurrentProjectPage = ({getParentProject}) => {
             .then (()=> {
                 getAllNotes()
             })
-            }} className="ticket_delete"> Delete </button>
+            }} className="button is-link"> Delete Note </button>
                 </div>
             })
         }
             <div className="linkButtons">
-                <button className="linkAddNote"> <Link to={`/newNote/${projectId}`}> Add a new note </Link> </button>
+                <button className="button is-link"> <Link className="link" to={`/newNote/${projectId}`}> Add a new note </Link> </button>
+            </div>
+        {
+            project.photoURL 
+            ? <> 
+               <img className="img" src={project.photoURL} alt="inspiration photo"/> 
+            </> 
+            : <>
+      
+            </>
+        }
     
+
+        
+            <div> 
+            <button className="button is-link"> <Link className="link" to={`/newSection/${projectId}`}> Add a new section </Link></button>
             </div>
         
         {
@@ -143,8 +157,8 @@ export const CurrentProjectPage = ({getParentProject}) => {
             )
         }
         <div className="buttonDiv"> 
-            <button className="completeButton" onClick={completeProject}> Complete Project </button>
-            <button className="deleteButton" onClick={deleteProject}> Delete Project </button>
+            <button className="button is-link" onClick={completeProject}> Complete Project </button>
+            <button className="button is-link" onClick={deleteProject}> Delete Project </button>
         </div>
         
     </div>
