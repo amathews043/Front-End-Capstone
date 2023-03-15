@@ -1,0 +1,19 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+.navbar__logout {
+    margin-left: auto;
+    
+}
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    color: white; 
+    margin-left: 10px;
+}
+
