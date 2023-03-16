@@ -2,12 +2,23 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AddANote } from "./AddANote"
+import UploadWidget from "../UploadWidget/UploadWidget"
 
 export const CompleteProjectPage = () => {
     const {projectId} = useParams()
     const [project, setProject] = useState([])
+    const [photos, setPhotos] = useState([])
     const [notes, setNotes] = useState([])
     const navigate = useNavigate()
+
+
+    const getAllPhotos = () => {
+        fetch(`http://localhost:8088/productPhotos?projectId=${projectId}`)
+        .then(res => res.json())
+        .then((photoArray) => {
+            setPhotos(photoArray)
+        })
+    }
 
     const getAllProducts = () => {
         fetch(`http://localhost:8088/projects?id=${projectId}&_expand=level`)
@@ -25,6 +36,11 @@ export const CompleteProjectPage = () => {
             setNotes(data)
         })
     }
+
+    useEffect(() => {
+        getAllPhotos()
+        }, 
+        [projectId])
 
     useEffect (
         () => {
@@ -67,27 +83,54 @@ export const CompleteProjectPage = () => {
              <p>Date Started: {project.startDate}</p> 
              <p>Date Complete: {project.completedDate} </p> 
              </aside>
-        {
+             {
             notes.map((note) => {
                 return <div className="project-notes" key={note.id}> 
                     <header> Date: {note.date} </header>
                     <p> {note.note} </p>
-                    <button><Link to={`/editNote/${note.id}`}> Edit </Link> </button>
+                    <button className="button is-link"><Link className="link" to={`/editNote/${note.id}`}> Edit Note </Link> </button>
                     <button onClick={() => {
-                fetch(`http://localhost:8088/notes/${note.id}`, {
+            fetch(`http://localhost:8088/notes/${note.id}`, {
                     method: "DELETE"
             })
             .then (()=> {
                 getAllNotes()
             })
-            }} className="ticket_delete"> Delete </button>
+            }} className="button is-link"> Delete Note </button>
                 </div>
             })
         }
         <div className="linkButtons">
-                <button className="button is-link"> <Link className="link" to={`/newNote/${projectId}`}> Add a new note </Link> </button>
-    
-            </div>
+            <button className="button is-link"> <Link className="link" to={`/newNote/${projectId}`}> Add a new note </Link> </button>
+        </div>
+
+        <UploadWidget projectId={projectId}/>
+
+        {
+            photos
+            ? <>
+            <h3 className="inspHeader">Finished Product Picture</h3>
+            {photos.map((photo) => { 
+                return <div>
+                <img className="img" src={photo.photoURL}/>
+                <div>
+                <button className="button is-link" onClick={() => {
+                            fetch(`http://localhost:8088/productPhotos/${photo.id}`, {
+                                method: "DELETE"
+                        })
+                        .then (()=> {
+                            getAllPhotos()
+                        })
+                }} >Delete Image</button>
+                </div>
+                </div>
+            })}
+        
+            </> : <>
+            </>
+
+
+        }
 
         <div className="buttonDiv"> 
             <button className="button is-link" onClick={deleteProject}> Delete Project </button>

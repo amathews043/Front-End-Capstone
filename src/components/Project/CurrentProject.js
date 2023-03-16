@@ -36,6 +36,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
             setSections(sectionsArray)
         })
     }
+
     useEffect( () => {
         getAllSections()
     }, 
@@ -134,6 +135,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
         {
             project.photoURL 
             ? <> 
+                <h3 className="inspHeader">Inspiration Picture</h3>
                <img className="img" src={project.photoURL} alt="inspiration photo"/> 
             </> 
             : <>
