@@ -29,16 +29,21 @@ export const Login = () => {
 
     return (
         <main className="container--login"> 
-            <section> 
+            <nav className="navbar is-link is-spaced"> 
+            <div className="navbar-brand">
+            <h3 className="navbar-item content is-large"> 
+                Crochet Counter
+            </h3>
+            </div>
+        </nav>
                 <form className="form--login" onSubmit={handleLogin}> 
-                    <h1> Welcome</h1>
-                    <h2> Please Sign In </h2>
+                    <h1 className="h3 mb-3 font-weight-normal"> Welcome Please Sign In</h1>
                     <fieldset> 
                         <label htmlFor="inputEmail"> Email Address</label>
                         <input type="email" 
                         value={email}
                         onChange={evt => setEmail(evt.target.value)}
-                        className="form--control"
+                        className="form-control"
                         placeholder="Email Address"
                         required autoFocus />
                     </fieldset>
@@ -47,17 +52,16 @@ export const Login = () => {
                         <input type="password" 
                         value={password}
                         onChange={evt => setPassword(evt.target.value)}
-                        className="form--control"
+                        className="form-control"
                         placeholder="Password"
                         required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="button is-link" type="submit">
                             Sign in
                         </button>
                     </fieldset>
                 </form>
-            </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
             </section>

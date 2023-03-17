@@ -81,7 +81,7 @@ export const CompleteProjectPage = () => {
         } 
              <aside className="dates"> 
              <p>Date Started: {project.startDate}</p> 
-             <p>Date Complete: {project.completedDate} </p> 
+             <p>Date Complete: {project.completeDate} </p> 
              </aside>
              {
             notes.map((note) => {
@@ -107,12 +107,13 @@ export const CompleteProjectPage = () => {
         <UploadWidget projectId={projectId}/>
 
         {
-            photos
+            photos[0]
             ? <>
             <h3 className="inspHeader">Finished Product Picture</h3>
+            <ul>
             {photos.map((photo) => { 
                 return <div>
-                <img className="img" src={photo.photoURL}/>
+                <li><img className="img" src={photo.photoURL}/> 
                 <div>
                 <button className="button is-link" onClick={() => {
                             fetch(`http://localhost:8088/productPhotos/${photo.id}`, {
@@ -121,11 +122,12 @@ export const CompleteProjectPage = () => {
                         .then (()=> {
                             getAllPhotos()
                         })
-                }} >Delete Image</button>
+                }} >Delete Image</button> 
                 </div>
+                </li>
                 </div>
             })}
-        
+            </ul>
             </> : <>
             </>
 

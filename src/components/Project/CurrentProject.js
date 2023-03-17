@@ -77,7 +77,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
 
     const completeProject = () => {
         const completeProjectDate = {
-            completedDate: new Date().toLocaleDateString()
+            completeDate: new Date().toLocaleDateString()
         }
 
         fetch(`http://localhost:8088/projects/${projectId}`, {
@@ -91,8 +91,8 @@ export const CurrentProjectPage = ({getParentProject}) => {
             getParentProject()
         })
         .catch(error => console.error(error))
-
     }
+
 
     return <div className="mainDiv"> 
             <h1 className="project-name"> 
@@ -139,9 +139,10 @@ export const CurrentProjectPage = ({getParentProject}) => {
                <img className="img" src={project.photoURL} alt="inspiration photo"/> 
             </> 
             : <>
-      
+            
             </>
         }
+
     
 
         
@@ -160,6 +161,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
         }
         <div className="buttonDiv"> 
             <button className="button is-link" onClick={completeProject}> Complete Project </button>
+            <button className="button is-link" onClick={() => navigate(`/edit/${projectId}`)}> Edit Project Details </button>
             <button className="button is-link" onClick={deleteProject}> Delete Project </button>
         </div>
         

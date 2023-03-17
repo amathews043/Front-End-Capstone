@@ -31,7 +31,7 @@ export const Home = () => {
                     <ul>
                     {
                         projects.map((project) => {
-                            if(!project?.completedDate){
+                            if(!project?.completeDate){
                                 return <li key={project.id}><Link to={`/projects/${project.id}`} key={project.id}> 
                                 {project.name}
                             </Link> </li>
@@ -47,7 +47,7 @@ export const Home = () => {
                     <ul>
                     {
                         projects.map((project) => {
-                            if(project?.completedDate){
+                            if(project?.completeDate){
                             return <li> <Link to={`/projects/${project.id}`} key={project.id}> 
                             {project.name}
                         </Link> </li>

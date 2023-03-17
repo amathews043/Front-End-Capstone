@@ -28,7 +28,7 @@ export const ProjectPage = () => {
     )
 
     
-    if(project.completedDate){
+    if(project.completeDate){
         return <CompleteProjectPage/>
     } else {
         return <CurrentProjectPage
