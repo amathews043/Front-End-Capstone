@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
-import logo from "./Stitch-Minder.png"
+import logo from "../auth/Stitch-Minder.png"
 
 export const NavBar = () => {
     const navigate = useNavigate()
@@ -10,6 +10,14 @@ export const NavBar = () => {
            <Link className="navbar__item navbar-brand content is-large" to="/"> 
            <img className="logo" src={logo}/>
             </Link>
+            <div className="navbar-start">
+            <Link className="navbar-item" id="white" to="/projects">
+                Projects
+             </Link>
+             <Link className="navbar-item" id="white" to="/form"> 
+             New Project
+            </Link>
+             </div>
             <div className="navbar-end navbar__logout">
                 <a className="navbar__link button is-light" to="" onClick={() => {
                     localStorage.removeItem("app_user")

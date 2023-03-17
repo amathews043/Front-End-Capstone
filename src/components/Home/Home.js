@@ -4,62 +4,17 @@ import "./Home.css"
 
 
 export const Home = () => {
-    const [projects, setProjects] = useState([])
-    const [currentProjects, setCurrentProjects] = useState([])
-    const [completeProjects, setCompleteProjects] = useState([])
-
-    const localAppUser = localStorage.getItem("app_user")
-    const appUserObject = JSON.parse(localAppUser)
-
-    useEffect (
-        () => {
-            fetch(`http://localhost:8088/projects?userId=${appUserObject.id}`)
-            .then(res => res.json())
-            .then((projectArray) => {
-                setProjects(projectArray)
-            })
-        },  
-        []
-    )
-
 
 	return (
         <section> 
-            <div className="current-list columns"> 
-                <div className="column">
-                    <h3>Current Projects</h3>
-                    <ul>
-                    {
-                        projects.map((project) => {
-                            if(!project?.completeDate){
-                                return <li key={project.id}><Link to={`/projects/${project.id}`} key={project.id}> 
-                                {project.name}
-                            </Link> </li>
-                            } else {
-                                return ""
-                            }
-                        })
-                    }
-                    </ul>
-                </div>
-                <div className="complete-list column">
-                    <h3> Complete Projects </h3>
-                    <ul>
-                    {
-                        projects.map((project) => {
-                            if(project?.completeDate){
-                            return <li> <Link to={`/projects/${project.id}`} key={project.id}> 
-                            {project.name}
-                        </Link> </li>
-                        } else return ""
-                        })
-                    }
-                    </ul>
-                </div>
-             </div>
+            <h3 className="projectListHeader"> Not Sure What to Make?  </h3>
+            <h4 className="projectListHeader">Try One of these Projects</h4>
+
+
             <div className="buttonDiv">
             <button className="button is-link buttonStart"><Link className="link" to={'/Form'}> Start a New Project</Link></button>
             </div>
+            
         </section>
     )
 }

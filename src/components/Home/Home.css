@@ -1,4 +1,19 @@
-.column, .button{
+.column, .button, .columnHeader{
     margin-left: 10px;
     
+}
+
+.column{
+    margin-top: 20px;
+}
+
+.columnHeader{
+    font-weight: 600;
+    margin-top: 25px; 
+}
+
+.projectListHeader{
+    margin-top: 10px;
+    font-weight: 600;
+    text-align: center;
 }

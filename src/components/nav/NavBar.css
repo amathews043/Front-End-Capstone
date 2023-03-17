@@ -13,11 +13,20 @@
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
-    color: white; 
+    /* color: white;  */
     margin-left: 10px;
 }
 
 .logo{
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.navbar-link{
+    margin-left: 25px;
+    color:white;
+}
+
+#white{
+    color: white;
 }
 
