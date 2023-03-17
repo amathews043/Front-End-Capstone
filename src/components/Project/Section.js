@@ -38,6 +38,7 @@ export const Section = ({id, count, name}) => {
 
         })
     }
+
     
     return <div className="countName" key={id}> 
         <header> {name} </header>

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
+import logo from "./Stitch-Minder.png"
 
 export const Login = () => {
     const [email, setEmail] = useState("")
@@ -29,11 +30,9 @@ export const Login = () => {
 
     return (
         <main className="container--login"> 
-            <nav className="navbar is-link is-spaced"> 
-            <div className="navbar-brand">
-            <h3 className="navbar-item content is-large"> 
-                Crochet Counter
-            </h3>
+            <nav className="navbar is-link"> 
+            <div className="navbar__item navbar-brand content is-large">
+            <img className="logo" src={logo}/>
             </div>
         </nav>
                 <form className="form--login" onSubmit={handleLogin}> 

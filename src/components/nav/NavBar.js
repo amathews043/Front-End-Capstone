@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
+import logo from "./Stitch-Minder.png"
 
 export const NavBar = () => {
     const navigate = useNavigate()
@@ -7,7 +8,7 @@ export const NavBar = () => {
     return (
         <nav className="navbar is-link is-spaced"> 
            <Link className="navbar__item navbar-brand content is-large" to="/"> 
-                Crochet Counter
+           <img className="logo" src={logo}/>
             </Link>
             <div className="navbar-end navbar__logout">
                 <a className="navbar__link button is-light" to="" onClick={() => {
