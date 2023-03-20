@@ -7,7 +7,7 @@ export const NavBar = () => {
 
     return (
         <nav className="navbar is-link is-spaced"> 
-           <Link className="navbar__item navbar-brand content is-large" to="/"> 
+           <Link className="navbar-brand content is-large" to="/"> 
            <img className="logo" src={logo}/>
             </Link>
             <div className="navbar-start">
@@ -28,13 +28,3 @@ export const NavBar = () => {
         </nav>
     )
 }
-
-{/* <li className="navbar__item active">
-<Link className="navbar__link" to="/tickets">Locations</Link>
-</li>
-<li className="navbar__item active">
-<Link className="navbar__link" to="/tickets/products">Products</Link>
-</li>
-<li className="navbar__item active">
-<Link className="navbar__link" to="/orders">My Orders</Link>
-</li> */}

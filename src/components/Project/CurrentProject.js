@@ -117,7 +117,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
                 return <div className="project-notes" key={note.id}> 
                     <header> Date: {note.date} </header>
                     <p> {note.note} </p>
-                    <button className="button is-link"><Link className="link" to={`/editNote/${note.id}`}> Edit Note </Link> </button>
+                    <button id="edit-button" className="button is-link"><Link className="link" to={`/editNote/${note.id}`}> Edit Note </Link> </button>
                     <button onClick={() => {
             fetch(`http://localhost:8088/notes/${note.id}`, {
                     method: "DELETE"
@@ -125,7 +125,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
             .then (()=> {
                 getAllNotes()
             })
-            }} className="button is-link"> Delete Note </button>
+            }} id="delete-button" className="button is-link"> Delete Note </button>
                 </div>
             })
         }

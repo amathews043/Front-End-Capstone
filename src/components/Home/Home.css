@@ -1,7 +1,7 @@
-.column, .button, .columnHeader{
+/* .column, .button, .columnHeader{
     margin-left: 10px;
     
-}
+} */
 
 .column{
     margin-top: 20px;
@@ -12,8 +12,18 @@
     margin-top: 25px; 
 }
 
-.projectListHeader{
+#projectListHeader{
     margin-top: 10px;
     font-weight: 600;
     text-align: center;
 }
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    margin-bottom: 25px;
+}
+

@@ -9,7 +9,7 @@
     margin-left: 10px;
 }
 
-.link, .dates, .newNote .listProject{
+.link, .dates, .newNote, .listProject{
     margin-left:10px;
 }
 
@@ -80,7 +80,7 @@
     margin-top: 10px;
 }
 
-.column, .button{
+#edit-button, #delete-button{
     margin-left: 10px;
     
 }

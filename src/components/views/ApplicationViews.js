@@ -36,7 +36,3 @@ export const ApplicationViews = () => {
 	)
 		
 	}
-
-    // <Route path="tickets" element={ <LocationsList/> } />
-    // <Route path="tickets/products" element={ <KandyContainer/> } />
-    // <Route path="orders" element={ <Orders/> } />

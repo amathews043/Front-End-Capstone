@@ -68,5 +68,3 @@ export const AddANote = () => {
         </div>
     </div>
 }
-
-//TODO Make the submit button crteate a new note 

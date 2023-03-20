@@ -84,7 +84,7 @@ export const NewProjectForm = () => {
         })
             .then(res => res.json())
             .then(() => {
-                navigate("/")
+                navigate(`/projects/${projectId}`)
             })
     }
 

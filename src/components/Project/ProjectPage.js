@@ -37,13 +37,3 @@ export const ProjectPage = () => {
     }
     
 }
-
-// project.patternURL 
-// ? <> 
-//     <Link className ="link" to={project.patternURL} target="_blank" rel="noreferrer noopener"> Link to pattern </Link> 
-// </> 
-// : <>
-
-// </>
-
-// }

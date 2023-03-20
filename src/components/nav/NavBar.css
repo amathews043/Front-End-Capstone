@@ -19,6 +19,7 @@
 
 .logo{
     margin-top: 10px;
+    width: 200px; 
 }
 
 .navbar-link{
@@ -29,4 +30,3 @@
 #white{
     color: white;
 }
-
