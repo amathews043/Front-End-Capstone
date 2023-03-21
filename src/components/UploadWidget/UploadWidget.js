@@ -6,6 +6,7 @@ const UploadWidget = ({projectId}) => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
+  const num = parseInt(projectId)
 
   useEffect(() => {
     cloudinaryRef.current = window.cloudinary;
@@ -27,7 +28,7 @@ const UploadWidget = ({projectId}) => {
     const photoToSendToAPI = {
         publicRef: result.info.public_id, 
         photoURL: result.info.secure_url,
-        projectId: projectId
+        projectId: num
     }
     setUploadedImage(result.info.public_id)
 
@@ -44,8 +45,8 @@ const UploadWidget = ({projectId}) => {
 
   return (
     <CloudinaryContext cloudName='duy4yg4hz'>
-      <div>
-        <button className="button is-link" onClick={() => widgetRef.current.open()}>
+      <div >
+        <button id="addPicture" className="button is-link" onClick={() => widgetRef.current.open()}>
           Upload a Picture of the Finished Product
         </button>
 

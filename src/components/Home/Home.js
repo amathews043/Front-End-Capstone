@@ -76,8 +76,8 @@ export const Home = () => {
                 examples.map((example) => {
                     return <div className="card" key={example.id}>
                     <div className="card-image">
-                        <figure className="image is-4by3">
-                            <img className="image" src={example.photoURL} alt="Placeholder image"/>
+                        <figure className="image is-4by">
+                            <img className="image" src={example.photoURL} alt="Project image"/>
                         </figure>
                     </div>
                      <div className="card-content">
@@ -86,17 +86,18 @@ export const Home = () => {
                             </div>
                             <div className="media-content">
                                 <Link to={example.patternURL} target="_blank" rel="noreferrer noopener"> <p className="title is-4">{example.name}</p> </Link>
-                                <p className="subtitle is-6">{example.author}</p>
+                                <p className="subtitle is-6">Pattern by {example.author}</p>
+                                <Link to={example.patternURL} target="_blank" rel="noreferrer noopener"> Link to Pattern </Link> 
                             </div>
+                            
                         </div>
     
                         <div className="content">
                         {example.description}
                         </div>
-                        <Link to={example.patternURL} target="_blank" rel="noreferrer noopener"> Link to Pattern </Link> 
-                        <div >
-                        <button onClick={() => startProjectButton(example)} className="button is-link"> Start Project</button>
-            </div>
+                        <div>
+                            <button onClick={() => startProjectButton(example)} className="button is-link"> Start Project</button>
+                        </div>
 
                     </div>
                 </div>

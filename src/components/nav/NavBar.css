@@ -14,12 +14,12 @@
     flex-basis: 20%;
     list-style-type: none;
     /* color: white;  */
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .logo{
     margin-top: 10px;
-    width: 200px; 
+    max-width: 200px;
 }
 
 .navbar-link{
@@ -29,4 +29,7 @@
 
 #white{
     color: white;
+}
+#brand{
+    max-width: 50%;
 }

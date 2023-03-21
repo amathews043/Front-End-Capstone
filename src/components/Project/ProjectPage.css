@@ -95,3 +95,15 @@
     font-weight: 600;
 }
 
+#currentProjects, #completeProjects{
+    margin-bottom: 25px;
+}
+
+#completeIMGCard, #completeProjectCard{
+    max-width: 500px;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+

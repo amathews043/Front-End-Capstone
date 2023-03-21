@@ -4,13 +4,12 @@ import { useNavigate, useParams } from "react-router-dom"
 export const AddANote = () => {
     const navigate = useNavigate()
     const {projectId} = useParams()
-    const [notes, setNotes] = useState([])
+    let num = parseInt(projectId)
     const [note, setNewNote] = useState({
         note: "", 
-        projectId: projectId, 
+        projectId: num, 
         date: new Date().toLocaleDateString()
     })
-
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
@@ -40,14 +39,6 @@ export const AddANote = () => {
             .then(() => {
                 navigate(`/projects/${projectId}`)
             })
-    }
-
-    const getAllNotes = () => {
-        fetch(`http://localhost:8088/notes?projectId=${projectId}`)
-        .then(res => res.json())
-        .then((data) => {
-            setNotes(data)
-        })
     }
    
 

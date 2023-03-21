@@ -7,15 +7,18 @@ export const NavBar = () => {
 
     return (
         <nav className="navbar is-link is-spaced"> 
-           <Link className="navbar-brand content is-large" to="/"> 
+           <Link id="brand" className="navbar-brand content is-large" to="/"> 
            <img className="logo" src={logo}/>
             </Link>
             <div className="navbar-start">
-            <Link className="navbar-item" id="white" to="/projects">
-                Projects
+            <Link className="navbar-item" id="white" to="/currentProjects">
+                Current Projects
+             </Link>
+             <Link className="navbar-item" id="white" to="/completeProjects">
+                Complete Projects
              </Link>
              <Link className="navbar-item" id="white" to="/form"> 
-             New Project
+             Start a New Project
             </Link>
              </div>
             <div className="navbar-end navbar__logout">
