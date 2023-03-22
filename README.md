@@ -7,5 +7,11 @@ I love to crochet but it is easy to forget what row of my pattern I am on when I
 * Users can add sections to their projects to keep count of different areas of their project. 
 * Users can add photos to their finished projects 
 
-# Home and Current Project Page Preview 
+# Home Page Preview 
 ![Home and Curren Project Page Preview](images/HomeAndProject.gif)
+
+# Current Project List Preview
+![Current Project List Preview](images/CurrentProjectList)
+
+# Complete Project List Preview
+![Complete Project Lst Preview](images/CompleteProjectList)
