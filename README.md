@@ -11,7 +11,7 @@ I love to crochet but it is easy to forget what row of my pattern I am on when I
 ![Home and Curren Project Page Preview](images/HomeAndProject.gif)
 
 # Current Project List Preview
-![Current Project List Preview](images/CurrentProjectList)
+![Current Project List Preview](images/CurrentProjectList.gif)
 
 # Complete Project List Preview
-![Complete Project Lst Preview](images/CompleteProjectList)
+![Complete Project Lst Preview](images/CompleteProjectList.gif)
