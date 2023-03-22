@@ -10,7 +10,7 @@ export const Home = () => {
     const localAppUser = localStorage.getItem("app_user")
     const appUserObject = JSON.parse(localAppUser)
     useEffect(() => {
-        fetch(`http://localhost:8088/examples`)
+        fetch(`http://localhost:8088/examples?_expand=level`)
         .then(res => res.json())
         .then((data) => {
             setExamples(data)
@@ -88,6 +88,7 @@ export const Home = () => {
                                 <Link to={example.patternURL} target="_blank" rel="noreferrer noopener"> <p className="title is-4">{example.name}</p> </Link>
                                 <p className="subtitle is-6">Pattern by {example.author}</p>
                                 <Link to={example.patternURL} target="_blank" rel="noreferrer noopener"> Link to Pattern </Link> 
+                                <p>Level: {example?.level?.level}</p>
                             </div>
                             
                         </div>
