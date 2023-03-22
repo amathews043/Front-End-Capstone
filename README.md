@@ -21,21 +21,24 @@ I love to crochet but it is easy to forget what row of my pattern I am on when I
 * Bulma 
 
 # Home Page Preview 
+The Home page shows users a list of suggested projects. They can click the link to look at the pattern or selected the "Start Project" button to add the project to their current projects. 
 ![Home and Curren Project Page Preview](images/HomeAndProject.gif)
 
 # Current Project List Preview
+On the Current Projects Page, users see a list of their curren projects. They can click on the project image or project name to view that project. If they do not already have an inspiration picture for their project, a button will appear in place of the project image. When users click this button theu will be taken to the "edit project" form and can add a URL.  
 ![Current Project List Preview](images/CurrentProjectList.gif)
 
 # Complete Project List Preview
+On the Complete Projects Pages, users see a list of projects they have completed. They can click on the project image or project name to view that project. If they do not already have an picture of their project, a button will appear in place of the project image. When users click this button theu will be taken to the upload widget and can add the image from their computer.   
 ![Complete Project Lst Preview](images/CompleteProjectList.gif)
 
 # Installation 
  1. Be sure JSON server is installed 
-    npm install -g json-server
+    ```npm install -g json-server```
 2. You can access my database [here](https://github.com/amathews043/Front-End-Capstone-API) or you can create your own database.json file and serve it 
-    json-server database.json -p 8088 -w
+    ```json-server database.json -p 8088 -w```
 3. Clone the Application 
-    git clone git@github.com:amathews043/Front-End-Capstone.git
+    ```git clone git@github.com:amathews043/Front-End-Capstone.git```
 4. Launch the Client 
-    npm install 
-    npm start
+    ```npm install```
+    ```npm start```
