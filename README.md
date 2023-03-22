@@ -11,15 +11,6 @@ I love to crochet but it is easy to forget what row of my pattern I am on when I
 * [ERD](https://dbdiagram.io/d/64090011296d97641d867efb)
 ![ERD](images/ERD.png)
 
-# Home Page Preview 
-![Home and Curren Project Page Preview](images/HomeAndProject.gif)
-
-# Current Project List Preview
-![Current Project List Preview](images/CurrentProjectList.gif)
-
-# Complete Project List Preview
-![Complete Project Lst Preview](images/CompleteProjectList.gif)
-
 # Technologies Used 
 * React 
 * JavaScript 
@@ -28,6 +19,15 @@ I love to crochet but it is easy to forget what row of my pattern I am on when I
 * HTML 
 * Cloudinary 
 * Bulma 
+
+# Home Page Preview 
+![Home and Curren Project Page Preview](images/HomeAndProject.gif)
+
+# Current Project List Preview
+![Current Project List Preview](images/CurrentProjectList.gif)
+
+# Complete Project List Preview
+![Complete Project Lst Preview](images/CompleteProjectList.gif)
 
 # Installation 
  1. Be sure JSON server is installed 
