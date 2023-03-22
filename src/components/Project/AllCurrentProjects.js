@@ -35,7 +35,7 @@ export const AllCurrentProjects = () => {
                         if(!project?.completeDate){
                             return <div className="card" key={project.id}>
                                  <div className="card-image">
-                                    <figure className="image is-4by3">
+                                    <figure className="image is-4by">
                                         <img className="image" src={project.photoURL} alt="Project image"/>
                                     </figure>
                                 </div>

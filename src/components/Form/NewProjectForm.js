@@ -164,10 +164,10 @@ export const NewProjectForm = () => {
                         updateProject(copy)
                     }
                 }> 
-                <option value="0"> Please Choose a Level</option>
+                <option key="0" value="0"> Please Choose a Level</option>
                 {
                 levels.map((level) => {
-                   return <option value={level.id} > {level.level}</option>
+                   return <option value={level.id} key={level.id} > {level.level}</option>
                 })
 
                 }

@@ -49,7 +49,7 @@ export const AllCompleteProjects = () => {
                             if(foundPhoto){
                             return <div id="completeIMGCard" className="card" key={project.id}>
                                  <div className="card-image">
-                                    <figure className="image is-4by5">
+                                    <figure className="image is-4by">
                                         <img onClick={() => navigate(`/projects/${project.id}`)} className="image" src={foundPhoto?.photoURL} alt="Project image"/>
                                     </figure>
                                 </div>
@@ -63,9 +63,9 @@ export const AllCompleteProjects = () => {
                             </div>
                             } else {
                                 return <div id="completeProjectCard" className="card" key={project.id}> 
-                                    <UploadWidget projectId={project.id}/>
                                     <Link to={`/projects/${project.id}`}> <p className="title is-4">{project.name}</p> </Link>
                                     <Link to={project.patternURL} target="_blank" rel="noreferrer noopener"> Link to Pattern </Link> 
+                                    <UploadWidget projectId={project.id}/>
                                 </div>
                             }
                         }
