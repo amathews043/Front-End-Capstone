@@ -18,6 +18,23 @@ export const Home = () => {
     }, 
     [])
 
+    const getAllSections = () => {
+        fetch (`http://localhost:8088/sections?_expand=project`)
+        .then(res => res.json())
+        .then((sectionsArray) => {
+            setSections(sectionsArray)
+        })
+    }
+
+    useEffect (
+        () => {
+            getAllSections()
+        }, 
+        []
+    )
+
+    const total = sections.reduce((partialSum, section) => partialSum + section.count, 0);
+
     const  sectionSaveButtonClick = (projectId, example) => {
         const sections = example.exampleSections
 
@@ -68,6 +85,9 @@ export const Home = () => {
 
 	return (
         <section> 
+            <div id="rowsAndCoutning"> 
+                <h2> <strong id="total">{total}</strong> Rows and Counting! </h2>
+            </div>
             <h3 id="projectListHeader"> Not Sure What to Make?  </h3>
             <h4 id="projectListHeader">Try One of These Projects</h4>
             <div className="columns is-centered">

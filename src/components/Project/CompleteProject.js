@@ -8,6 +8,7 @@ export const CompleteProjectPage = () => {
     const {projectId} = useParams()
     const [project, setProject] = useState([])
     const [photos, setPhotos] = useState([])
+    const [sections, setSections] = useState([])
     const [notes, setNotes] = useState([])
     const navigate = useNavigate()
 
@@ -37,6 +38,14 @@ export const CompleteProjectPage = () => {
         })
     }
 
+    const getAllSections = () => {
+        fetch (`http://localhost:8088/sections?_expand=project&projectId=${projectId}`)
+        .then(res => res.json())
+        .then((sectionsArray) => {
+            setSections(sectionsArray)
+        })
+    }
+
     useEffect(() => {
         getAllPhotos()
         }, 
@@ -56,6 +65,13 @@ export const CompleteProjectPage = () => {
         [projectId]
     )
 
+    useEffect (
+        () => {
+            getAllSections()
+        }, 
+        [projectId]
+    )
+
     const deleteProject = () => {
         fetch(`http://localhost:8088/projects/${projectId}`, {
                     method: "DELETE"
@@ -64,6 +80,11 @@ export const CompleteProjectPage = () => {
                 navigate("/")
             })
     }
+
+
+    const total = sections.reduce((partialSum, section) => partialSum + section.count, 0);
+    
+
 
     return <div className="mainDiv"> 
             <h1 className="project-name"> 
@@ -104,6 +125,10 @@ export const CompleteProjectPage = () => {
             <button className="button is-link"> <Link className="link" to={`/newNote/${projectId}`}> Add a new note </Link> </button>
         </div>
 
+        <div id="rows"> 
+        <h2> You made <strong id="num">{total}</strong> rows in this project</h2>
+        </div>
+
         <UploadWidget projectId={projectId}/>
 
         {
@@ -137,7 +162,7 @@ export const CompleteProjectPage = () => {
         <div className="buttonDiv"> 
             <button className="button is-link" onClick={deleteProject}> Delete Project </button>
         </div>
-
+         
         
         
     </div>

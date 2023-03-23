@@ -57,4 +57,4 @@ On the Complete Projects Page, users see a list of projects they have completed.
 
 
 # Acknowledgements
-I couldn't have done any of this without all the wonderful people in Cohort 62. Thank you all for all the support and help! - 
+I couldn't have done any of this without all the wonderful people in Cohort 62. Thank you all for all the support and help!
