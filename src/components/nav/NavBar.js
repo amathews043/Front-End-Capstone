@@ -20,6 +20,9 @@ export const NavBar = () => {
              <Link className="navbar-item" id="white" to="/form"> 
              Start a New Project
             </Link>
+            <Link className="navbar-item" id="white" to="/tutorial"> 
+             Tutorials
+            </Link>
              </div>
             <div className="navbar-end navbar__logout">
                 <a className="navbar__link button is-light" to="" onClick={() => {

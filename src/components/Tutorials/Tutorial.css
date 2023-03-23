@@ -1,0 +1,11 @@
+.video{
+    margin: 20px 0 0 10px;
+    max-width: 500px;
+}
+
+.header{
+    font-weight: bold;
+    font-size: larger;
+    color: #485fc7;
+    margin-bottom: 10px;
+}

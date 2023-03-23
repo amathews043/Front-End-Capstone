@@ -9,6 +9,7 @@ import { NewSectionForm } from "../Project/NewSectionForm"
 import { EditProject } from "../Project/EditProject"
 import { AllCurrentProjects } from "../Project/AllCurrentProjects"
 import { AllCompleteProjects } from "../Project/AllCompleteProjects"
+import { Tutorial } from "../Tutorials/Tutorial"
 
 
 export const ApplicationViews = () => {
@@ -30,6 +31,7 @@ export const ApplicationViews = () => {
 				<Route path="newNote/:projectId" element={ <AddANote/> } />
 				<Route path="editNote/:noteId" element={ <EditNote/> } />
 				<Route path="form" element={ <NewProjectForm/> } />
+				<Route path="tutorial" element={ <Tutorial/> } />
 				<Route path="newSection/:projectId" element={ <NewSectionForm/> } />
 				<Route path="edit/:projectId" element={ <EditProject/> } />
 				<Route path="currentProjects" element={ <AllCurrentProjects/> } />
