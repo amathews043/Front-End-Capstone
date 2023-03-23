@@ -55,7 +55,7 @@ export const AllCurrentProjects = () => {
                                     <button onClick={() => navigate(`/edit/${project.id}`)} className="button is-link btn" > Add An inspiration Picture for this Project </button>
                                    <Link to={`/projects/${project.id}`} target="_blank" rel="noreferrer noopener"> <p className="title is-4">{project.name}</p> </Link>
                                    <Link to={project.patternURL} target="_blank" rel="noreferrer noopener"> Link to Pattern </Link> 
-                                   <p>Level:{project?.level?.level}</p>
+                                   <p>Level: {project?.level?.level}</p>
                                </div>
 
                                </div>
