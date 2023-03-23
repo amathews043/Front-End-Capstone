@@ -17,6 +17,10 @@ export const NewProjectForm = () => {
         completeDate: null, 
         userId: null
     })
+    const [section, updateSection] = useState({
+        count: 0, 
+        name: ""
+    })
 
     
 
@@ -73,7 +77,7 @@ export const NewProjectForm = () => {
         const projectToSendToAPI = {
             projectId: projectId, 
             count: 0, 
-            name: "main section"
+            name: section.name
         }
         return fetch ('http://localhost:8088/sections', {
             method: "POST", 
@@ -114,6 +118,54 @@ export const NewProjectForm = () => {
         </fieldset>
         <fieldset>
             <div className="form-group field"> 
+            <label className="label"htmlFor="location">Level:* </label>
+            <div className="control">
+                <div className="select">
+                <select value={project.levelId} onChange={
+                    (evt) => {
+                        const copy = {...project}
+                        copy.levelId = parseInt(evt.target.value)
+                        updateProject(copy)
+                    }
+                }> 
+                <option key="0" value="0"> Please Choose a Level</option>
+                {
+                levels.map((level) => {
+                   return <option value={level.id} key={level.id} > {level.level}</option>
+                })
+
+                }
+                
+                </select>
+                
+                </div>
+
+            </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group field"> 
+            <label className="label" htmlFor="name">First Section Name:</label>
+                <div className="control">
+                <input
+                required autoFocus
+                type="text"
+                className="form-control input"
+                placeholder="Optional: add a name to the first section of the project"
+                value={section.name}
+                onChange={
+                    (evt) => {
+                        const sectionCopy = {...section}
+                        sectionCopy.name = evt.target.value 
+                        updateSection(sectionCopy)
+                    }
+                } />
+                </div>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <div className="form-group field"> 
             <label className="label" htmlFor="projectURL">Project URL:</label>
                 <div className="control">
                 <input
@@ -140,7 +192,7 @@ export const NewProjectForm = () => {
                 autoFocus
                 type="text"
                 className="form-control input"
-                placeholder="optional inspiration picture"
+                placeholder="optional: inspiration picture"
                 value={project.photoURL}
                 onChange={
                     (evt) => {
@@ -150,33 +202,6 @@ export const NewProjectForm = () => {
                     }
                 } />
                 </div>
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group field"> 
-            <label className="label"htmlFor="location">Level:* </label>
-            <div className="control">
-                <div className="select">
-                <select value={project.levelId} onChange={
-                    (evt) => {
-                        const copy = {...project}
-                        copy.levelId = parseInt(evt.target.value)
-                        updateProject(copy)
-                    }
-                }> 
-                <option key="0" value="0"> Please Choose a Level</option>
-                {
-                levels.map((level) => {
-                   return <option value={level.id} key={level.id} > {level.level}</option>
-                })
-
-                }
-                
-                </select>
-                
-                </div>
-
-            </div>
             </div>
         </fieldset>
         <button className="button is-link"
