@@ -1,4 +1,4 @@
-[Application Overview](#application-overview)
+
 - [Application Overview](#application-overview)
 - [Features](#features)
 - [Planning](#planning)
