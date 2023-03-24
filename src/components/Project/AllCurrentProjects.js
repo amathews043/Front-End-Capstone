@@ -20,8 +20,6 @@ export const AllCurrentProjects = () => {
         },  
         []
     )
-
-
 	return (
         <section> 
             <div className="columns is-centered"> 
