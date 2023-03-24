@@ -8,7 +8,7 @@ export const EditNote = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:8088/notes/${noteId}`)
+        fetch(`${process.env.REACT_APP_API_HOST}/notes/${noteId}`)
         .then(res => res.json())
         .then((data) => {
             setNote(data)
@@ -25,7 +25,7 @@ export const EditNote = () => {
 
         }
 
-        return fetch (`http://localhost:8088/notes/${noteId}`, {
+        return fetch (`${process.env.REACT_APP_API_HOST}/notes/${noteId}`, {
             method: "PATCH", 
             headers: {
                 "Content-Type": "application/json"

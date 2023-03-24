@@ -26,7 +26,7 @@ export const NewProjectForm = () => {
 
     useEffect(
         () => {
-            fetch('http://localhost:8088/levels')
+            fetch(`${process.env.REACT_APP_API_HOST}/levels`)
             .then(res =>  res.json())
             .then(levelsArray => {
                 setLevels(levelsArray)
@@ -59,7 +59,7 @@ export const NewProjectForm = () => {
             completeDate: project.completeDate, 
             userId: appUserObject.id
         }
-        return fetch ('http://localhost:8088/projects', {
+        return fetch (`${process.env.REACT_APP_API_HOST}/projects`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"
@@ -79,7 +79,7 @@ export const NewProjectForm = () => {
             count: 0, 
             name: section.name
         }
-        return fetch ('http://localhost:8088/sections', {
+        return fetch (`${process.env.REACT_APP_API_HOST}/sections`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"

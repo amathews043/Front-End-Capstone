@@ -13,7 +13,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
     const navigate = useNavigate()
 
     const getCurrentProject = () => {
-        fetch(`http://localhost:8088/projects?id=${projectId}&_expand=level`)
+        fetch(`${process.env.REACT_APP_API_HOST}/projects?id=${projectId}&_expand=level`)
             .then(res => res.json())
             .then((data) => {
                 const singleProject= data[0]
@@ -22,7 +22,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
     }
 
     const getAllNotes = () => {
-        fetch(`http://localhost:8088/notes?projectId=${projectId}`)
+        fetch(`${process.env.REACT_APP_API_HOST}/notes?projectId=${projectId}`)
         .then(res => res.json())
         .then((data) => {
             setNotes(data)
@@ -30,7 +30,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
     }
 
     const getAllSections = () => {
-        fetch (`http://localhost:8088/sections?_expand=project&projectId=${projectId}`)
+        fetch (`${process.env.REACT_APP_API_HOST}/sections?_expand=project&projectId=${projectId}`)
         .then(res => res.json())
         .then((sectionsArray) => {
             setSections(sectionsArray)
@@ -58,7 +58,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
     )
 
     const deleteSections = () => {
-        fetch(`http://localhost:8088/sections?projectId=${projectId}`, {
+        fetch(`${process.env.REACT_APP_API_HOST}/sections?projectId=${projectId}`, {
                     method: "DELETE"
             })
             .then ()
@@ -67,7 +67,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
     const deleteProject = () => {
         deleteSections()
 
-        fetch(`http://localhost:8088/projects/${projectId}`, {
+        fetch(`${process.env.REACT_APP_API_HOST}/projects/${projectId}`, {
                     method: "DELETE"
             })
             .then (()=> {
@@ -80,7 +80,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
             completeDate: new Date().toLocaleDateString()
         }
 
-        fetch(`http://localhost:8088/projects/${projectId}`, {
+        fetch(`${process.env.REACT_APP_API_HOST}/projects/${projectId}`, {
             method: "PATCH", 
             headers: {
                 "Content-Type": "application/json"
@@ -119,7 +119,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
                     <p> {note.note} </p>
                     <button id="edit-button" className="button is-link"><Link className="link" to={`/editNote/${note.id}`}> Edit Note </Link> </button>
                     <button onClick={() => {
-            fetch(`http://localhost:8088/notes/${note.id}`, {
+            fetch(`${process.env.REACT_APP_API_HOST}/notes/${note.id}`, {
                     method: "DELETE"
             })
             .then (()=> {

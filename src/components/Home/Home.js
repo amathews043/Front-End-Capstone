@@ -10,7 +10,7 @@ export const Home = () => {
     const localAppUser = localStorage.getItem("app_user")
     const appUserObject = JSON.parse(localAppUser)
     useEffect(() => {
-        fetch(`http://localhost:8088/examples?_expand=level`)
+        fetch(`${process.env.REACT_APP_API_HOST}/examples?_expand=level`)
         .then(res => res.json())
         .then((data) => {
             setExamples(data)
@@ -19,7 +19,7 @@ export const Home = () => {
     [])
 
     const getAllSections = () => {
-        fetch (`http://localhost:8088/sections?_expand=project`)
+        fetch (`${process.env.REACT_APP_API_HOST}/sections?_expand=project`)
         .then(res => res.json())
         .then((sectionsArray) => {
             setSections(sectionsArray)
@@ -44,7 +44,7 @@ export const Home = () => {
             count: 0, 
             name: section
         }
-        return fetch ('http://localhost:8088/sections', {
+        return fetch (`${process.env.REACT_APP_API_HOST}/sections`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"
@@ -70,7 +70,7 @@ export const Home = () => {
             completeDate: null,
             userId: appUserObject.id
         }
-        return fetch ('http://localhost:8088/projects', {
+        return fetch (`${process.env.REACT_APP_API_HOST}/projects`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"

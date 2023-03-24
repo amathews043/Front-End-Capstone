@@ -20,7 +20,7 @@ export const NewSectionForm = () => {
             count: newSection.count,
             projectId: parseInt(projectId)
         }
-        return fetch ('http://localhost:8088/sections', {
+        return fetch (`${process.env.REACT_APP_API_HOST}/sections`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"

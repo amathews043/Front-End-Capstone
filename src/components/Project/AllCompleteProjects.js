@@ -12,7 +12,7 @@ export const AllCompleteProjects = () => {
     const appUserObject = JSON.parse(localAppUser)
 
     const getAllPhotos = () => {
-        fetch(`http://localhost:8088/productPhotos`)
+        fetch(`${process.env.REACT_APP_API_HOST}/productPhotos`)
         .then(res => res.json())
         .then((photoArray) => {
             setPhotos(photoArray)
@@ -26,7 +26,7 @@ export const AllCompleteProjects = () => {
 
     useEffect (
         () => {
-            fetch(`http://localhost:8088/projects?userId=${appUserObject.id}`)
+            fetch(`${process.env.REACT_APP_API_HOST}/projects?userId=${appUserObject.id}`)
             .then(res => res.json())
             .then((projectArray) => {
                 setProjects(projectArray)

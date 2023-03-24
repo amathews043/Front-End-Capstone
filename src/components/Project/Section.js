@@ -9,7 +9,7 @@ export const Section = ({id, count, name}) => {
         setCounter({
             count: counter.count += 1})
 
-        return fetch(`http://localhost:8088/sections/${id}`,{
+        return fetch(`${process.env.REACT_APP_API_HOST}/sections/${id}`,{
             method: "PATCH", 
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export const Section = ({id, count, name}) => {
     const subtract = () => {
         setCounter({
             count: counter.count -= 1})
-        return fetch(`http://localhost:8088/sections/${id}`,{
+        return fetch(`${process.env.REACT_APP_API_HOST}/sections/${id}`,{
             method: "PATCH", 
             headers: {
                 "Content-Type": "application/json"

@@ -32,7 +32,7 @@ const UploadWidget = ({projectId}) => {
     }
     setUploadedImage(result.info.public_id)
 
-    return fetch('http://localhost:8088/productPhotos', {
+    return fetch(`${process.env.REACT_APP_API_HOST}/productPhotos`, {
         method: "POST", 
         headers: {
             "Content-Type": "application/json"

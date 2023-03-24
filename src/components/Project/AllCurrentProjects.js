@@ -12,7 +12,7 @@ export const AllCurrentProjects = () => {
 
     useEffect (
         () => {
-            fetch(`http://localhost:8088/projects?userId=${appUserObject.id}&_expand=level`)
+            fetch(`${process.env.REACT_APP_API_HOST}/projects?userId=${appUserObject.id}&_expand=level`)
             .then(res => res.json())
             .then((projectArray) => {
                 setProjects(projectArray)

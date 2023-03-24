@@ -14,7 +14,7 @@ export const CompleteProjectPage = () => {
 
 
     const getAllPhotos = () => {
-        fetch(`http://localhost:8088/productPhotos?projectId=${projectId}`)
+        fetch(`${process.env.REACT_APP_API_HOST}/productPhotos?projectId=${projectId}`)
         .then(res => res.json())
         .then((photoArray) => {
             setPhotos(photoArray)
@@ -22,7 +22,7 @@ export const CompleteProjectPage = () => {
     }
 
     const getAllProducts = () => {
-        fetch(`http://localhost:8088/projects?id=${projectId}&_expand=level`)
+        fetch(`${process.env.REACT_APP_API_HOST}/projects?id=${projectId}&_expand=level`)
             .then(res => res.json())
             .then((data) => {
                 const singleProject= data[0]
@@ -31,7 +31,7 @@ export const CompleteProjectPage = () => {
     }
 
     const getAllNotes = () => {
-        fetch(`http://localhost:8088/notes?projectId=${projectId}`)
+        fetch(`${process.env.REACT_APP_API_HOST}/notes?projectId=${projectId}`)
         .then(res => res.json())
         .then((data) => {
             setNotes(data)
@@ -39,7 +39,7 @@ export const CompleteProjectPage = () => {
     }
 
     const getAllSections = () => {
-        fetch (`http://localhost:8088/sections?_expand=project&projectId=${projectId}`)
+        fetch (`${process.env.REACT_APP_API_HOST}/sections?_expand=project&projectId=${projectId}`)
         .then(res => res.json())
         .then((sectionsArray) => {
             setSections(sectionsArray)
@@ -73,7 +73,7 @@ export const CompleteProjectPage = () => {
     )
 
     const deleteProject = () => {
-        fetch(`http://localhost:8088/projects/${projectId}`, {
+        fetch(`${process.env.REACT_APP_API_HOST}/projects/${projectId}`, {
                     method: "DELETE"
             })
             .then (()=> {
@@ -111,7 +111,7 @@ export const CompleteProjectPage = () => {
                     <p> {note.note} </p>
                     <button id="edit-button" className="button is-link"><Link className="link" to={`/editNote/${note.id}`}> Edit Note </Link> </button>
                     <button onClick={() => {
-            fetch(`http://localhost:8088/notes/${note.id}`, {
+            fetch(`${process.env.REACT_APP_API_HOST}/notes/${note.id}`, {
                     method: "DELETE"
             })
             .then (()=> {
@@ -141,7 +141,7 @@ export const CompleteProjectPage = () => {
                 <li><img className="img" src={photo.photoURL}/> 
                 <div>
                 <button className="button is-link" onClick={() => {
-                            fetch(`http://localhost:8088/productPhotos/${photo.id}`, {
+                            fetch(`${process.env.REACT_APP_API_HOST}/productPhotos/${photo.id}`, {
                                 method: "DELETE"
                         })
                         .then (()=> {

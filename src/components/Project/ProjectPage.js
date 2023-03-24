@@ -14,7 +14,7 @@ export const ProjectPage = () => {
     const [project, setProject] = useState([])
 
     const getCurrentProject = () => {
-        fetch(`http://localhost:8088/projects?id=${projectId}&_expand=level`)
+        fetch(`${process.env.REACT_APP_API_HOST}/projects?id=${projectId}&_expand=level`)
             .then(res => res.json())
             .then((data) => {
                 const singleProject= data[0]

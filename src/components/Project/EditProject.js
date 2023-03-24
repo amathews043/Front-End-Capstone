@@ -17,7 +17,7 @@ export const EditProject = () => {
     })
 
     useEffect (() => {
-        fetch(`http://localhost:8088/projects/${projectId}`)
+        fetch(`${process.env.REACT_APP_API_HOST}/projects/${projectId}`)
         .then(res => res.json())
         .then((project) => {
             updateProject(project)
@@ -27,7 +27,7 @@ export const EditProject = () => {
 
     useEffect(
         () => {
-            fetch('http://localhost:8088/levels')
+            fetch(`${process.env.REACT_APP_API_HOST}/levels`)
             .then(res =>  res.json())
             .then(levelsArray => {
                 setLevels(levelsArray)
@@ -57,7 +57,7 @@ export const EditProject = () => {
             photoURL: project.photoURL, 
             levelId: project.levelId,  
         }
-        return fetch (`http://localhost:8088/projects/${projectId}`, {
+        return fetch (`${process.env.REACT_APP_API_HOST}/projects/${projectId}`, {
             method: "PATCH", 
             headers: {
                 "Content-Type": "application/json"
