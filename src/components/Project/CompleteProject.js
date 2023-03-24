@@ -161,6 +161,7 @@ export const CompleteProjectPage = () => {
 
         <div className="buttonDiv"> 
             <button className="button is-link" onClick={deleteProject}> Delete Project </button>
+            <button className="button is-link" onClick={() => navigate(`/edit/${projectId}`)}> Edit Project Details </button>
         </div>
          
         
