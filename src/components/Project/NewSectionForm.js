@@ -17,7 +17,7 @@ export const NewSectionForm = () => {
 
         const sectionToSendToAPI = {
             name: newSection.name, 
-            count: newSection.count,
+            count: parseInt(newSection.count),
             projectId: parseInt(projectId)
         }
         return fetch (`${process.env.REACT_APP_API_HOST}/sections`, {
