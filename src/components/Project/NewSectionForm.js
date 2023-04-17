@@ -81,7 +81,7 @@ export const NewSectionForm = () => {
                     sectionSaveButtonClick(clickEvent)
                 }
             }>
-                Add New Project
+                Add New Section
             </button>
     </form>
     )
