@@ -1,10 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
 import "./ProjectPage.css"
-import {fill} from "@cloudinary/url-gen/actions/resize";
-import {CloudinaryImage} from '@cloudinary/url-gen';
-import {AdvancedImage} from '@cloudinary/react';
 import { CompleteProjectPage } from "./CompleteProject";
 import { CurrentProjectPage } from "./CurrentProject";
 

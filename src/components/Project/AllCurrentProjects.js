@@ -18,7 +18,7 @@ export const AllCurrentProjects = () => {
                 setProjects(projectArray)
             })
         },  
-        []
+        [appUserObject.id]
     )
 	return (
         <section> 
@@ -28,12 +28,13 @@ export const AllCurrentProjects = () => {
                 <ul>
                     
                 {
+                    // eslint-disable-next-line array-callback-return
                     projects.map((project) => {
                         if(!project?.completeDate){
                             if(project.photoURL && project.patternURL){return <div className="card" key={project.id}>
                                  <div className="card-image">
                                     <figure className="image is-4by">
-                                        <img className="image" onClick={() => navigate(`/projects/${project.id}`)} src={project.photoURL} alt="Project image"/>
+                                        <img className="image" onClick={() => navigate(`/projects/${project.id}`)} src={project.photoURL} alt="Project"/>
                                     </figure>
                                 </div>
                                 <div className="card-content">
@@ -48,7 +49,7 @@ export const AllCurrentProjects = () => {
                             } else if(project.photoURL && !project.patternURL) {return <div className="card" key={project.id}>
                             <div className="card-image">
                                <figure className="image is-4by">
-                                   <img className="image" onClick={() => navigate(`/projects/${project.id}`)} src={project.photoURL} alt="Project image"/>
+                                   <img className="image" onClick={() => navigate(`/projects/${project.id}`)} src={project.photoURL} alt="Project"/>
                                </figure>
                            </div>
                            <div className="card-content">

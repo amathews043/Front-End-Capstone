@@ -1,7 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { AddANote } from "./AddANote"
 import UploadWidget from "../UploadWidget/UploadWidget"
 
 export const CompleteProjectPage = () => {
@@ -138,7 +138,7 @@ export const CompleteProjectPage = () => {
             <ul>
             {photos.map((photo) => { 
                 return <div>
-                <li><img className="img" src={photo.photoURL}/> 
+                <li><img className="img" src={photo.photoURL} alt="Finished Project"/> 
                 <div>
                 <button className="button is-link" onClick={() => {
                             fetch(`${process.env.REACT_APP_API_HOST}/productPhotos/${photo.id}`, {

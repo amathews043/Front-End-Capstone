@@ -186,7 +186,7 @@ export const NewProjectForm = () => {
         </fieldset>
         <fieldset>
             <div className="form-group field"> 
-            <label className="label" htmlFor="phtotURL">Photo URL:</label>
+            <label className="label" htmlFor="photoURL">Photo URL:</label>
                 <div className="control">
                 <input
                 autoFocus

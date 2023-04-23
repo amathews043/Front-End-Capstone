@@ -85,7 +85,7 @@ export const Home = () => {
 
 	return (
         <section> 
-            <div id="rowsAndCoutning"> 
+            <div id="rowsAndCounting"> 
                 <h2> <strong id="total">{total}</strong> Rows and Counting! </h2>
             </div>
             <h3 id="projectListHeader"> Not Sure What to Make?  </h3>
@@ -97,7 +97,7 @@ export const Home = () => {
                     return <div className="card" key={example.id}>
                     <div className="card-image">
                         <figure className="image is-4by">
-                            <img className="image" src={example.photoURL} alt="Project image"/>
+                            <img className="image" src={example.photoURL} alt="Project"/>
                         </figure>
                     </div>
                      <div className="card-content">

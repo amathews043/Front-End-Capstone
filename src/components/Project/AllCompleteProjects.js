@@ -32,7 +32,7 @@ export const AllCompleteProjects = () => {
                 setProjects(projectArray)
             })
         },  
-        []
+        [appUserObject.id]
     )
     
     return (
@@ -43,6 +43,7 @@ export const AllCompleteProjects = () => {
                 <ul>
                     
                 {
+                    // eslint-disable-next-line array-callback-return
                     projects.map((project) => {
                         if(project?.completeDate){
                             const foundPhoto = photos.find((photo) => photo.projectId === project.id )
@@ -50,7 +51,7 @@ export const AllCompleteProjects = () => {
                             return <div id="completeIMGCard" className="card" key={project.id}>
                                  <div className="card-image">
                                     <figure className="image is-4by">
-                                        <img onClick={() => navigate(`/projects/${project.id}`)} className="image" src={foundPhoto?.photoURL} alt="Project image"/>
+                                        <img onClick={() => navigate(`/projects/${project.id}`)} className="image" src={foundPhoto?.photoURL} alt="Project"/>
                                     </figure>
                                 </div>
                                 <div className="card-content">
@@ -65,7 +66,7 @@ export const AllCompleteProjects = () => {
                                 return <div id="completeIMGCard" className="card" key={project.id}>
                                      <div className="card-image">
                                         <figure className="image is-4by">
-                                            <img onClick={() => navigate(`/projects/${project.id}`)} className="image" src={foundPhoto?.photoURL} alt="Project image"/>
+                                            <img onClick={() => navigate(`/projects/${project.id}`)} className="image" src={foundPhoto?.photoURL} alt="Project"/>
                                         </figure>
                                     </div>
                                     <div className="card-content">

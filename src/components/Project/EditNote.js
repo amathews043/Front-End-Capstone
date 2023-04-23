@@ -14,7 +14,7 @@ export const EditNote = () => {
             setNote(data)
         })
     },
-    [])
+    [noteId])
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
@@ -36,7 +36,7 @@ export const EditNote = () => {
             .then(() => {
                 setNote({
                 note: "",
-                dateEditted: new Date().toLocaleDateString()
+                dateEdited: new Date().toLocaleDateString()
             });
             })
             .then(() => {

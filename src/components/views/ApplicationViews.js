@@ -1,5 +1,4 @@
 import { Route, Routes, Outlet } from "react-router-dom"
-import { useState, useEffect } from "react"
 import { Home } from "../Home/Home"
 import { ProjectPage } from"../Project/ProjectPage"
 import { AddANote } from "../Project/AddANote"

@@ -1,9 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { AddANote } from "./AddANote"
 import { Section } from "./Section"
-import { EditNote } from "./EditNote"
 
 export const CurrentProjectPage = ({getParentProject}) => {
     const {projectId} = useParams()
@@ -136,7 +135,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
             project.photoURL 
             ? <> 
                 <h3 className="inspHeader">Inspiration Picture</h3>
-               <img className="img" src={project.photoURL} alt="inspiration photo"/> 
+               <img className="img" src={project.photoURL} alt="inspiration"/> 
             </> 
             : <>
             

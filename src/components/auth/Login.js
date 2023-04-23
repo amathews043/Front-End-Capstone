@@ -32,7 +32,7 @@ export const Login = () => {
         <main className="container--login"> 
             <nav className="navbar is-link"> 
             <div className="navbar__item navbar-brand content is-large">
-            <img className="logo" src={logo}/>
+            <img className="logo" src={logo} alt="logo"/>
             </div>
         </nav>
                 <form className="form--login" onSubmit={handleLogin}> 
