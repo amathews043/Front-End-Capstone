@@ -56,15 +56,7 @@ export const CurrentProjectPage = ({getParentProject}) => {
         [projectId]
     )
 
-    const deleteSections = () => {
-        fetch(`${process.env.REACT_APP_API_HOST}/sections?projectId=${projectId}`, {
-                    method: "DELETE"
-            })
-            .then ()
-    }
-
     const deleteProject = () => {
-        // deleteSections()
 
         fetch(`${process.env.REACT_APP_API_HOST}/projects/${projectId}`, {
                     method: "DELETE"
